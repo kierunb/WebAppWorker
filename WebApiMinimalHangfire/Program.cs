@@ -1,5 +1,4 @@
 using Hangfire;
-using Newtonsoft.Json;
 using Serilog;
 using WebApiMinimalHangfire.Jobs;
 
@@ -7,24 +6,24 @@ Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 
 try
 {
-    Log.Information("Starting web application");
+    Log.Information("Starting application...");
 
     var builder = WebApplication.CreateBuilder(args);
-    builder.Services.AddSerilog();
+    builder.Services.AddSerilog(); // serilog
 
     // Add services to the container.
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
     // app services
     builder.Services.AddTransient<SimpleJob>();
 
-    // Hangfire
-    // Add Hangfire services.
+    // Add hangfire services.
     builder.Services.AddHangfire(configuration =>
         configuration
             .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+            .UseSerilogLogProvider()
+            .UseColouredConsoleLogProvider()
             .UseSimpleAssemblyNameTypeSerializer()
             .UseRecommendedSerializerSettings()
             .UseSqlServerStorage(builder.Configuration.GetConnectionString("HangfireDB"))
@@ -51,13 +50,12 @@ try
         }
     );
 
-    // Endpoints
+    // endpoints
     app.MapPost(
             "/enqueue-background-job",
             (string parameter = "test") =>
             {
-                BackgroundJob.Enqueue<SimpleJob>(
-                    job => job.Execute("Background", parameter));
+                BackgroundJob.Enqueue<SimpleJob>(job => job.Execute("Background", parameter));
                 return Results.Created();
             }
         )
@@ -71,7 +69,7 @@ try
                 var delay = TimeSpan.FromSeconds(10);
 
                 BackgroundJob.Schedule<SimpleJob>(
-                    job => job.Execute("Background", parameter),
+                    job => job.Execute("Scheduled", parameter),
                     delay
                 );
 
@@ -90,7 +88,7 @@ try
 
                 RecurringJob.AddOrUpdate<SimpleJob>(
                     recurringJobId,
-                    job => job.Execute("Background", parameter),
+                    job => job.Execute("Recurring", parameter),
                     cronExpression
                 );
                 return Results.Created();
