@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppWorker", "WebAppWorker\WebAppWorker.csproj", "{B25A1460-CD7E-47F9-B23F-1CEEACFFD726}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiWorker", "WebAppWorker\WebApiWorker.csproj", "{B25A1460-CD7E-47F9-B23F-1CEEACFFD726}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApkaTestowa", "ApkaTestowa\ApkaTestowa.csproj", "{AB410E22-1977-4220-8AAC-A9C6034893B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiMinimalHangfire", "WebApiMinimalHangfire\WebApiMinimalHangfire.csproj", "{E7794A97-9DA3-4E81-B7AB-7137BD96ACDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{B25A1460-CD7E-47F9-B23F-1CEEACFFD726}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B25A1460-CD7E-47F9-B23F-1CEEACFFD726}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B25A1460-CD7E-47F9-B23F-1CEEACFFD726}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB410E22-1977-4220-8AAC-A9C6034893B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB410E22-1977-4220-8AAC-A9C6034893B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB410E22-1977-4220-8AAC-A9C6034893B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB410E22-1977-4220-8AAC-A9C6034893B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7794A97-9DA3-4E81-B7AB-7137BD96ACDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7794A97-9DA3-4E81-B7AB-7137BD96ACDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7794A97-9DA3-4E81-B7AB-7137BD96ACDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7794A97-9DA3-4E81-B7AB-7137BD96ACDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

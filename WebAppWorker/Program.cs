@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using WebAppWorker;
 
 var builder = WebApplication.CreateBuilder(args);
